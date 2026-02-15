@@ -256,6 +256,304 @@ best-performing baseline.
 </section>
 
 
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-2" style="text-align: center;">Experiments</h2>
+    <div class="experiment-row" data-scroll-row>
+      <h3 class="title is-4 experiment-subheader">Spatial Reasoning</h3>
+      <p class="experiment-row-caption">Understanding spatial relations between objects in the environment.</p>
+      <div class="video-scroll-container">
+        <button class="scroll-button left"><span class="scroll-icon">&#8249;</span></button>
+        <div class="video-scroll">
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/place_rightmost_fruit_near_the_bottle.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Move the fruit which is on the right towards the bottle.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/pick_up_chip_to_right_of_can.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Pick the chip bag which is to the right of the can.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/pick_chip_on_left.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Pick the chip bag on the left of the table.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/move_can_to_center.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Move the can to the center of the table.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/put_apple_in_middle.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Pick the apple from the bowl and place it on the table.</p>
+          </div>
+        </div>
+        <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
+      </div>
+      <div class="video-dots" aria-hidden="true"></div>
+    </div>
+    <div class="experiment-row" data-scroll-row>
+      <h3 class="title is-4 experiment-subheader">Obstacle Awareness</h3>
+      <p class="experiment-row-caption">Recognizing configurations the robot must avoid.</p>
+      <div class="video-scroll-container">
+        <button class="scroll-button left"><span class="scroll-icon">&#8249;</span></button>
+        <div class="video-scroll">
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/place_banana_near_pear.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Move the banana near the pear.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/put_apple_in_bowl.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Place the apple in the bowl.</p>
+          </div>
+          
+
+        </div>
+        <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
+      </div>
+      <div class="video-dots" aria-hidden="true"></div>
+    </div>
+    <div class="experiment-row" data-scroll-row>
+      <h3 class="title is-4 experiment-subheader">Semantic Understanding</h3>
+      <p class="experiment-row-caption">Inferring intent from under-specified instructions.</p>
+      <div class="video-scroll-container">
+        <button class="scroll-button left"><span class="scroll-icon">&#8249;</span></button>
+        <div class="video-scroll">
+  
+          
+        </div>
+        <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
+      </div>
+      <div class="video-dots" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.video-scroll-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 12px 0 8px;
+}
+
+.experiment-row {
+  margin-top: 28px;
+}
+
+.experiment-subheader {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.experiment-row-caption {
+  text-align: left;
+  margin: -4px 0 14px;
+  color: #4a4a4a;
+  font-size: 0.98rem;
+}
+
+.video-scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  gap: 24px;
+  padding: 0 72px;
+  scroll-snap-type: x mandatory;
+  align-items: flex-start;
+}
+
+.video-card {
+  flex: 0 0 auto;
+  width: 65vw;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  scroll-snap-align: center;
+}
+
+.scroll-video {
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  opacity: 0.35;
+  transform: scale(0.92);
+  transition: opacity 180ms ease, transform 180ms ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.video-card.is-active .scroll-video {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.video-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  color: #3a3a3a;
+  min-height: 1.4em;
+}
+
+.video-card.is-active .video-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-button {
+  background-color: #FF9900;
+  border: none;
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.scroll-icon {
+  display: block;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.scroll-button.left {
+  left: 0;
+}
+
+.scroll-button.right {
+  right: 0;
+}
+
+.video-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.video-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 153, 0, 0.35);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.video-dot.is-active {
+  background: #FF9900;
+  transform: scale(1.25);
+}
+</style>
+
+<script>
+  const setupVideoRow = (row) => {
+    const videoScroll = row.querySelector('.video-scroll');
+    const videoCards = Array.from(row.querySelectorAll('.video-card'));
+    const videos = videoCards.map((card) => card.querySelector('.scroll-video'));
+    const dotsContainer = row.querySelector('.video-dots');
+    let activeIndex = -1;
+
+    const dots = videos.map(() => {
+      const dot = document.createElement('span');
+      dot.className = 'video-dot';
+      dotsContainer.appendChild(dot);
+      return dot;
+    });
+
+    const updateActiveVideo = () => {
+      const center = videoScroll.scrollLeft + videoScroll.clientWidth / 2;
+      let closest = null;
+      let closestDistance = Infinity;
+      let nextIndex = -1;
+
+      videoCards.forEach((card, index) => {
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const distance = Math.abs(center - cardCenter);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closest = card;
+          nextIndex = index;
+        }
+      });
+
+      videoCards.forEach((card) => card.classList.remove('is-active'));
+      if (closest) {
+        closest.classList.add('is-active');
+      }
+
+      dots.forEach((dot) => dot.classList.remove('is-active'));
+      if (nextIndex >= 0) {
+        dots[nextIndex].classList.add('is-active');
+      }
+
+      if (nextIndex !== activeIndex && nextIndex >= 0) {
+        const activeVideo = videos[nextIndex];
+        activeVideo.currentTime = 0;
+        activeVideo.play();
+        activeIndex = nextIndex;
+      }
+    };
+
+    const scrollByAmount = () => {
+      const sample = videoCards[0];
+      return sample ? sample.offsetWidth + 24 : 300;
+    };
+
+    row.querySelector('.scroll-button.left').addEventListener('click', () => {
+      videoScroll.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+    });
+
+    row.querySelector('.scroll-button.right').addEventListener('click', () => {
+      videoScroll.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+    });
+
+    let rafId = null;
+    videoScroll.addEventListener('scroll', () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = requestAnimationFrame(updateActiveVideo);
+    });
+
+    updateActiveVideo();
+  };
+
+  document.querySelectorAll('[data-scroll-row]').forEach(setupVideoRow);
+</script>
+
+
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
