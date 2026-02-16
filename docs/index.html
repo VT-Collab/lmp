@@ -387,6 +387,105 @@ best-performing baseline.
         <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
       </div>
       <div class="video-dots" aria-hidden="true"></div>
+      <p class="experiment-row-caption inline-row-caption">We evaluate <b style="color:#FF9900;">LMP</b> on 20 household tasks,
+    assessing overall task success rate compared to <a href="https://www.pi.website/blog/pi05">$\pi_{0.5}$</a> and
+    <a href="https://www.robot-learning.uk/language-models-trajectory-generators">TrajGen</a>.</p>
+      <div class="inline-video-row">
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/trajgen_banana_7.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+          <span class="inline-video-speed">X7</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/pi_banana_10.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+          <span class="inline-video-speed">X10</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/LMP_banana_5.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+          <span class="inline-video-speed">X5</span>
+        </div>
+      </div>
+      <p class="inline-video-caption">Put the banana on the plate.</p>
+      <div class="inline-video-row">
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/trajgen_sponge_13.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+          <span class="inline-video-speed">X13</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/pi_sponge_7.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+          <span class="inline-video-speed">X7</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/LMP_sponge_5.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+          <span class="inline-video-speed">X5</span>
+        </div>
+      </div>
+      <p class="inline-video-caption">Wipe the plate.</p>
+      <div class="inline-video-row">
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/trajgen_shirt_9.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+          <span class="inline-video-speed">X9</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/pi_shirt_12.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+          <span class="inline-video-speed">X12</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/LMP_shirt_4.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+          <span class="inline-video-speed">X4</span>
+        </div>
+      </div>
+      <p class="inline-video-caption">Hang the shirt.</p>
+      <div class="inline-video-row">
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/trajgen_bottle_9.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+          <span class="inline-video-speed">X9</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/pi_bottle_10.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+          <span class="inline-video-speed">X10</span>
+        </div>
+        <div class="inline-video-card">
+          <video class="inline-video" autoplay loop muted>
+            <source src="./static/resources/LMP_bottle_4.mp4" type="video/mp4">
+          </video>
+          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+          <span class="inline-video-speed">X4</span>
+        </div>
+      </div>
+      <p class="inline-video-caption">Move the fruit which is on the right towards the bottle.</p>
     </div>
   </div>
 </section>
@@ -414,6 +513,68 @@ best-performing baseline.
   margin: -4px 0 14px;
   color: #4a4a4a;
   font-size: 0.98rem;
+}
+
+.experiment-row-caption a {
+  color: rgb(255, 153, 0);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.experiment-row-caption a:hover {
+  color: rgb(255, 120, 0);
+  text-decoration: underline;
+}
+
+.inline-row-caption {
+  margin-top: 18px;
+}
+
+.inline-video-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.inline-video-card {
+  position: relative;
+}
+
+.inline-video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.inline-video-tag {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.inline-video-speed {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1a1a1a;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.inline-video-caption {
+  text-align: center;
+  margin: 12px 0 0;
+  color: #4a4a4a;
+  font-size: 0.95rem;
 }
 
 .video-scroll {
@@ -574,17 +735,21 @@ best-performing baseline.
       }
     };
 
-    const scrollByAmount = () => {
-      const sample = videoCards[0];
-      return sample ? sample.offsetWidth + 24 : 300;
+    const scrollToIndex = (index) => {
+      const target = videoCards[index];
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
     };
 
     row.querySelector('.scroll-button.left').addEventListener('click', () => {
-      videoScroll.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' });
+      const nextIndex = Math.max(activeIndex - 1, 0);
+      scrollToIndex(nextIndex);
     });
 
     row.querySelector('.scroll-button.right').addEventListener('click', () => {
-      videoScroll.scrollBy({ left: scrollByAmount(), behavior: 'smooth' });
+      const nextIndex = Math.min(activeIndex + 1, videoCards.length - 1);
+      scrollToIndex(nextIndex);
     });
 
     let rafId = null;
