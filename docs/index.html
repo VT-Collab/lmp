@@ -890,11 +890,11 @@ best-performing baseline.
       });
     }, {
       threshold: 0.1,
-      rootMargin: '200px 0px'
+      rootMargin: '400px 0px'
     });
 
     videos.forEach((video) => {
-      if (video.classList.contains('scroll-video')) {
+      if (video.classList.contains('scroll-video') || video.classList.contains('inline-video') || video.id === 'dropdown-video') {
         video.setAttribute('preload', 'auto');
       } else {
         video.setAttribute('preload', 'metadata');
