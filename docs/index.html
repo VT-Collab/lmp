@@ -889,10 +889,16 @@ best-performing baseline.
         safePlay(video);
       });
     }, {
-      threshold: 0.5
+      threshold: 0.1,
+      rootMargin: '200px 0px'
     });
 
     videos.forEach((video) => {
+      if (video.classList.contains('scroll-video')) {
+        video.setAttribute('preload', 'auto');
+      } else {
+        video.setAttribute('preload', 'metadata');
+      }
       video.muted = true;
       video.defaultMuted = true;
       video.volume = 0;
