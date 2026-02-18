@@ -486,6 +486,36 @@ best-performing baseline.
         </div>
       </div>
       <p class="inline-video-caption">Move the fruit which is on the right towards the bottle.</p>
+      <div class="dropdown-video-section">
+        <div class="dropdown-video-controls">
+          <label for="dropdown-video-select" class="dropdown-video-label">Select and visualize and the motion generated:</label>
+          <select id="dropdown-video-select" class="dropdown-video-select">
+            <option value="option-1" data-video="./static/resources/dmp_wipe.mp4" data-image="./static/resources/dmp_wipe.png">Wipe the plate.</option>
+            <option value="option-2" data-video="./static/resources/placeholder-video-2.mp4" data-image="./static/resources/placeholder-image-2.jpg">Carry the banana to the plate, lifting it high and moving forward to avoid the bottle.</option>
+            <option value="option-3" data-video="./static/resources/placeholder-video-3.mp4" data-image="./static/resources/placeholder-image-3.jpg">Reach and pick the apple from the bowl.</option>
+          </select>
+        </div>
+        <div class="dropdown-media-split">
+          <div class="dropdown-image-pane">
+            <img id="dropdown-image" class="dropdown-image" src="./static/resources/placeholder-image-1.jpg" alt="Placeholder image">
+          </div>
+          <div class="dropdown-video-pane">
+            <video id="dropdown-video" class="dropdown-video" autoplay loop muted playsinline>
+              <source id="dropdown-video-source" src="./static/resources/placeholder-video-1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+      <div class="citation-section">
+        <h3 class="title is-4 experiment-subheader citation-title">Citation</h3>
+        <pre class="citation-block"><code>@article{dai2026language,
+    title={Language Movement Primitives: Grounding Language Models in Robot Motion},
+    author={Dai, Yinlong and Christie, Benjamin A and Evans, Daniel J and Losey, Dylan P and Stepputtis, Simon},
+    journal={arXiv preprint arXiv:2602.02839},
+    year={2026}
+}
+</code></pre>
+      </div>
     </div>
   </div>
 </section>
@@ -575,6 +605,73 @@ best-performing baseline.
   margin: 12px 0 0;
   color: #4a4a4a;
   font-size: 0.95rem;
+}
+
+.dropdown-video-section {
+  margin-top: 20px;
+}
+
+.dropdown-video-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dropdown-video-label {
+  font-weight: 600;
+  color: #2a2a2a;
+}
+
+.dropdown-video-select {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.dropdown-media-split {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.dropdown-video,
+.dropdown-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.citation-section {
+  margin-top: 24px;
+}
+
+.citation-title {
+  margin: 0 0 12px;
+}
+
+.citation-block {
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f5f4f1;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .dropdown-media-split {
+    grid-template-columns: 1fr;
+  }
 }
 
 .video-scroll {
@@ -687,6 +784,13 @@ best-performing baseline.
 </style>
 
 <script>
+  const safePlay = (video) => {
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
+  };
+
   const setupVideoRow = (row) => {
     const videoScroll = row.querySelector('.video-scroll');
     const videoCards = Array.from(row.querySelectorAll('.video-card'));
@@ -729,8 +833,11 @@ best-performing baseline.
 
       if (nextIndex !== activeIndex && nextIndex >= 0) {
         const activeVideo = videos[nextIndex];
-        activeVideo.currentTime = 0;
-        activeVideo.play();
+        const isVisible = activeVideo.dataset.isVisible !== 'false';
+        if (isVisible) {
+          activeVideo.currentTime = 0;
+          safePlay(activeVideo);
+        }
         activeIndex = nextIndex;
       }
     };
@@ -763,7 +870,75 @@ best-performing baseline.
     updateActiveVideo();
   };
 
+  const setupVideoAutoplayObserver = () => {
+    const videos = Array.from(document.querySelectorAll('video'));
+    if (!videos.length || !('IntersectionObserver' in window)) {
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        video.dataset.isVisible = entry.isIntersecting ? 'true' : 'false';
+
+        if (!entry.isIntersecting) {
+          video.pause();
+          return;
+        }
+
+        safePlay(video);
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    videos.forEach((video) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
+      video.setAttribute('muted', '');
+      video.playsInline = true;
+      if (video.id !== 'dropdown-video') {
+        video.addEventListener('click', () => {
+          video.controls = true;
+        }, { once: true });
+      }
+      video.pause();
+      observer.observe(video);
+    });
+  };
+
   document.querySelectorAll('[data-scroll-row]').forEach(setupVideoRow);
+
+  const dropdownSelect = document.getElementById('dropdown-video-select');
+  if (dropdownSelect) {
+    const dropdownVideo = document.getElementById('dropdown-video');
+    const dropdownVideoSource = document.getElementById('dropdown-video-source');
+    const dropdownImage = document.getElementById('dropdown-image');
+
+    const updateDropdownMedia = () => {
+      const selectedOption = dropdownSelect.selectedOptions[0];
+      const nextVideo = selectedOption?.getAttribute('data-video');
+      const nextImage = selectedOption?.getAttribute('data-image');
+
+      if (nextVideo && dropdownVideoSource) {
+        dropdownVideoSource.src = nextVideo;
+        if (dropdownVideo) {
+          dropdownVideo.load();
+          safePlay(dropdownVideo);
+        }
+      }
+
+      if (nextImage && dropdownImage) {
+        dropdownImage.src = nextImage;
+      }
+    };
+
+    dropdownSelect.addEventListener('change', updateDropdownMedia);
+    updateDropdownMedia();
+  }
+
+  setupVideoAutoplayObserver();
 </script>
 
 
