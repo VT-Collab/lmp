@@ -490,9 +490,9 @@ best-performing baseline.
         <div class="dropdown-video-controls">
           <label for="dropdown-video-select" class="dropdown-video-label">Select and visualize and the motion generated:</label>
           <select id="dropdown-video-select" class="dropdown-video-select">
-            <option value="option-1" data-video="./static/resources/dmp_wipe.mp4" data-image="./static/resources/dmp_wipe.png">Wipe the plate.</option>
-            <option value="option-2" data-video="./static/resources/placeholder-video-2.mp4" data-image="./static/resources/placeholder-image-2.jpg">Carry the banana to the plate, lifting it high and moving forward to avoid the bottle.</option>
-            <option value="option-3" data-video="./static/resources/placeholder-video-3.mp4" data-image="./static/resources/placeholder-image-3.jpg">Reach and pick the apple from the bowl.</option>
+            <option value="option-1" data-video="./static/resources/dmp_wipe.mp4" data-image="./static/resources/dmp_wipe.svg">Wipe the plate.</option>
+            <option value="option-2" data-video="./static/resources/dmp_carry.mp4" data-image="./static/resources/dmp_carry.svg">Carry the banana to the plate, lifting it high and moving forward to avoid the bottle.</option>
+            <option value="option-3" data-video="./static/resources/dmp_reach.mp4" data-image="./static/resources/dmp_reach.svg">Reach and pick the apple from the bowl.</option>
           </select>
         </div>
         <div class="dropdown-media-split">
@@ -876,6 +876,13 @@ best-performing baseline.
       return;
     }
 
+    const isInViewport = (element) => {
+      const rect = element.getBoundingClientRect();
+      const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+      const viewWidth = window.innerWidth || document.documentElement.clientWidth;
+      return rect.bottom > 0 && rect.right > 0 && rect.top < viewHeight && rect.left < viewWidth;
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const video = entry.target;
@@ -909,7 +916,12 @@ best-performing baseline.
           video.controls = true;
         }, { once: true });
       }
-      video.pause();
+      if (video.classList.contains('scroll-video') && isInViewport(video)) {
+        video.dataset.isVisible = 'true';
+        safePlay(video);
+      } else {
+        video.pause();
+      }
       observer.observe(video);
     });
   };
