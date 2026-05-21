@@ -394,135 +394,173 @@ best-performing baseline.
         <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
       </div>
       <div class="video-dots" aria-hidden="true"></div>
-      <p class="experiment-row-caption inline-row-caption">We evaluate <b style="color:#FF9900;">LMP</b> on 20 household tasks,
+    </div>
+
+    <p class="experiment-row-caption inline-row-caption">We evaluate <b style="color:#FF9900;">LMP</b> on 20 household tasks,
     assessing overall task success rate compared to <a href="https://www.pi.website/blog/pi05">$\pi_{0.5}$</a> and
     <a href="https://www.robot-learning.uk/language-models-trajectory-generators">TrajGen</a>.</p>
-      <div class="inline-video-row">
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/trajgen_banana_7.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
-          <span class="inline-video-speed">X7</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/pi_banana_10.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
-          <span class="inline-video-speed">X10</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/LMP_banana_5.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
-          <span class="inline-video-speed">X5</span>
-        </div>
+    <div class="inline-video-row">
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/trajgen_banana_7.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+        <span class="inline-video-speed">X7</span>
       </div>
-      <p class="inline-video-caption">Put the banana on the plate.</p>
-      <div class="inline-video-row">
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/trajgen_sponge_13.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
-          <span class="inline-video-speed">X13</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/pi_sponge_7.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
-          <span class="inline-video-speed">X7</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/LMP_sponge_5.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
-          <span class="inline-video-speed">X5</span>
-        </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/pi_banana_10.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+        <span class="inline-video-speed">X10</span>
       </div>
-      <p class="inline-video-caption">Wipe the plate.</p>
-      <div class="inline-video-row">
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/trajgen_shirt_9.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
-          <span class="inline-video-speed">X9</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/pi_shirt_12.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
-          <span class="inline-video-speed">X12</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/LMP_shirt_4.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
-          <span class="inline-video-speed">X4</span>
-        </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/LMP_banana_5.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+        <span class="inline-video-speed">X5</span>
       </div>
-      <p class="inline-video-caption">Hang the shirt.</p>
-      <div class="inline-video-row">
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/trajgen_bottle_9.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
-          <span class="inline-video-speed">X9</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/pi_bottle_10.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
-          <span class="inline-video-speed">X10</span>
-        </div>
-        <div class="inline-video-card">
-          <video class="inline-video" autoplay loop muted>
-            <source src="./static/resources/LMP_bottle_4.mp4" type="video/mp4">
-          </video>
-          <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
-          <span class="inline-video-speed">X4</span>
-        </div>
+    </div>
+    <p class="inline-video-caption">Put the banana on the plate.</p>
+    <div class="inline-video-row">
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/trajgen_sponge_13.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+        <span class="inline-video-speed">X13</span>
       </div>
-      <p class="inline-video-caption">Move the fruit which is on the right towards the bottle.</p>
-      <div class="dropdown-video-section">
-        <div class="dropdown-video-controls">
-          <label for="dropdown-video-select" class="dropdown-video-label">Select and visualize and the motion generated:</label>
-          <select id="dropdown-video-select" class="dropdown-video-select">
-            <option value="option-1" data-video="./static/resources/dmp_wipe.mp4" data-image="./static/resources/dmp_wipe.svg">Wipe the plate.</option>
-            <option value="option-2" data-video="./static/resources/dmp_carry.mp4" data-image="./static/resources/dmp_carry.svg">Carry the banana to the plate, lifting it high and moving forward to avoid the bottle.</option>
-            <option value="option-3" data-video="./static/resources/dmp_reach.mp4" data-image="./static/resources/dmp_reach.svg">Reach and grasp the apple in the bowl.</option>
-          </select>
-        </div>
-        <div class="dropdown-media-split">
-          <div class="dropdown-image-pane">
-            <img id="dropdown-image" class="dropdown-image" src="./static/resources/placeholder-image-1.jpg" alt="Placeholder image">
-          </div>
-          <div class="dropdown-video-pane">
-            <video id="dropdown-video" class="dropdown-video" autoplay loop muted playsinline>
-              <source id="dropdown-video-source" src="./static/resources/placeholder-video-1.mp4" type="video/mp4">
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/pi_sponge_7.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+        <span class="inline-video-speed">X7</span>
+      </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/LMP_sponge_5.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+        <span class="inline-video-speed">X5</span>
+      </div>
+    </div>
+    <p class="inline-video-caption">Wipe the plate.</p>
+    <div class="inline-video-row">
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/trajgen_shirt_9.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+        <span class="inline-video-speed">X9</span>
+      </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/pi_shirt_12.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+        <span class="inline-video-speed">X12</span>
+      </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/LMP_shirt_4.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+        <span class="inline-video-speed">X4</span>
+      </div>
+    </div>
+    <p class="inline-video-caption">Hang the shirt.</p>
+    <div class="inline-video-row">
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/trajgen_bottle_9.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(160, 212, 164);">TrajGen</span>
+        <span class="inline-video-speed">X9</span>
+      </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/pi_bottle_10.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(141, 95, 211);">$\pi_{0.5}$</span>
+        <span class="inline-video-speed">X10</span>
+      </div>
+      <div class="inline-video-card">
+        <video class="inline-video" autoplay loop muted>
+          <source src="./static/resources/LMP_bottle_4.mp4" type="video/mp4">
+        </video>
+        <span class="inline-video-tag" style="color: rgb(255, 153, 0);">LMP</span>
+        <span class="inline-video-speed">X4</span>
+      </div>
+    </div>
+    <p class="inline-video-caption">Move the fruit which is on the right towards the bottle.</p>
+
+    <div class="experiment-row" data-scroll-row>
+      <h3 class="title is-4 experiment-subheader">Reactive Adaptation</h3>
+      <p class="experiment-row-caption">Adapt to dynamic changes in the environment in real-time.</p>
+      <div class="video-scroll-container">
+        <button class="scroll-button left"><span class="scroll-icon">&#8249;</span></button>
+        <div class="video-scroll">
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/dynamic/knock_bottle.mp4" type="video/mp4">
             </video>
+            <p class="video-caption">Knock over the left bottle.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/dynamic/wipe.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Wipe the plate.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/dynamic/apple_in_bowl.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Place the apple in the bowl.</p>
+          </div>
+          <div class="video-card">
+            <video class="scroll-video" autoplay loop muted>
+              <source src="./static/resources/dynamic/obstacle.mp4" type="video/mp4">
+            </video>
+            <p class="video-caption">Put the banana on the plate.</p>
           </div>
         </div>
+        <button class="scroll-button right"><span class="scroll-icon">&#8250;</span></button>
       </div>
-      <div class="citation-section">
-        <h3 class="title is-4 experiment-subheader citation-title">Citation</h3>
-        <pre class="citation-block"><code>@article{dai2026language,
+      <div class="video-dots" aria-hidden="true"></div>
+    </div>
+
+    <div class="dropdown-video-section">
+      <div class="dropdown-video-controls">
+        <label for="dropdown-video-select" class="dropdown-video-label">Select and visualize and the motion generated:</label>
+        <select id="dropdown-video-select" class="dropdown-video-select">
+          <option value="option-1" data-video="./static/resources/dmp_wipe.mp4" data-image="./static/resources/dmp_wipe.svg">Wipe the plate.</option>
+          <option value="option-2" data-video="./static/resources/dmp_carry.mp4" data-image="./static/resources/dmp_carry.svg">Carry the banana to the plate, lifting it high and moving forward to avoid the bottle.</option>
+          <option value="option-3" data-video="./static/resources/dmp_reach.mp4" data-image="./static/resources/dmp_reach.svg">Reach and grasp the apple in the bowl.</option>
+        </select>
+      </div>
+      <div class="dropdown-media-split">
+        <div class="dropdown-image-pane">
+          <img id="dropdown-image" class="dropdown-image" src="./static/resources/placeholder-image-1.jpg" alt="Placeholder image">
+        </div>
+        <div class="dropdown-video-pane">
+          <video id="dropdown-video" class="dropdown-video" autoplay loop muted playsinline>
+            <source id="dropdown-video-source" src="./static/resources/placeholder-video-1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="citation-section">
+      <h3 class="title is-4 experiment-subheader citation-title">Citation</h3>
+      <pre class="citation-block"><code>@article{dai2026language,
     title={Language Movement Primitives: Grounding Language Models in Robot Motion},
     author={Dai, Yinlong and Christie, Benjamin A and Evans, Daniel J and Losey, Dylan P and Stepputtis, Simon},
     journal={arXiv preprint arXiv:2602.02839},
     year={2026}
 }
 </code></pre>
-      </div>
     </div>
   </div>
 </section>
